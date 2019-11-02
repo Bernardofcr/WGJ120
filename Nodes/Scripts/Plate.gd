@@ -9,8 +9,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	velocity = applied_force
 #	print("velocity = ", velocity)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
+
+func move_to_other_side(new_pos: Vector2) -> void:
+	$Tween.interpolate_property(self, "position",
+        Vector2(self.position.x, self.position.y), new_pos, .5,
+        Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.start()
+	pass

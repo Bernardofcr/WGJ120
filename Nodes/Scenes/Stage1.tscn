@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Nodes/Tilesets/ground.tres" type="TileSet" id=1]
-[ext_resource path="res://Sprites/car_trees_etc.png" type="Texture" id=2]
-[ext_resource path="res://Nodes/Scripts/ScreenShake.gd" type="Script" id=3]
-[ext_resource path="res://Nodes/Scenes/PauseMenu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Nodes/Prefabs/Food.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Nodes/Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/car_trees_etc.png" type="Texture" id=3]
+[ext_resource path="res://Nodes/Scripts/ScreenShake.gd" type="Script" id=4]
+[ext_resource path="res://Nodes/Scenes/PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Prefabs/Food.tscn" type="PackedScene" id=6]
 
 [node name="Stage1" type="Node2D"]
 
@@ -17,6 +17,9 @@ collision_mask = 11
 format = 1
 tile_data = PoolIntArray( -65536, 11, 0, 0, 11, 0, 29, 9, 0, 65536, 11, 0, 65565, 9, 0, 131072, 11, 0, 131101, 9, 0, 196608, 11, 0, 196637, 9, 0, 262144, 11, 0, 262173, 9, 0, 327680, 11, 0, 327709, 9, 0, 393216, 11, 0, 393245, 9, 0, 458752, 11, 0, 458781, 9, 0, 524288, 11, 0, 524317, 9, 0, 589824, 11, 0, 589853, 9, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 7, 0 )
 
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56.0251, 137.484 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2( 0.5, 0.5 )
 
@@ -25,30 +28,27 @@ motion_mirroring = Vector2( 336, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 1, -13 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="ScreenShake" type="Node2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="ScreenShake"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 editor/display_folded = true
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
 
-[node name="Food" parent="." instance=ExtResource( 5 )]
+[node name="Food" parent="." instance=ExtResource( 6 )]
 position = Vector2( 93.1595, 137.277 )
 
-[node name="Food2" parent="." instance=ExtResource( 5 )]
+[node name="Food2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 72.2273, 130.409 )
 
-[node name="Food3" parent="." instance=ExtResource( 5 )]
+[node name="Food3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 72.2273, 125.391 )
-
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 56.0251, 137.484 )
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

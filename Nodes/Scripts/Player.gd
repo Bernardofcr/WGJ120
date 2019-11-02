@@ -38,7 +38,9 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.flip_h = false
 			$AnimatedSprite.play("run")
 			if sign($Plate.position.x) == -1:
-				$Plate.position.x *= -1
+				var new_pos = Vector2(15, $Plate.position.y)
+				$Plate.move_to_other_side(new_pos)
+
 #				if !is_attacking:
 #					$AnimatedSprite.flip_h = false
 #					$AnimatedSprite.play("run")
@@ -50,7 +52,8 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.flip_h = true
 			$AnimatedSprite.play("run")
 			if sign($Plate.position.x) == 1:
-				$Plate.position.x *= -1
+				var new_pos = Vector2(15 * -1, $Plate.position.y)
+				$Plate.move_to_other_side(new_pos)
 
 		elif Input.is_action_just_pressed("ui_focus_next"):
 			get_tree().reload_current_scene()

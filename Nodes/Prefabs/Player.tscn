@@ -6,12 +6,12 @@
 [ext_resource path="res://Sprites/characterDie2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/characterDie.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/character7.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/CharacterAttack.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/character2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/character16.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/character17.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/character18.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/character3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/character2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/character16.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/character17.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/character18.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/character3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/CharacterAttack.png" type="Texture" id=12]
 [ext_resource path="res://Nodes/Prefabs/Plate.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -31,20 +31,20 @@ animations = [ {
 "name": "fall",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "run",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": false,
 "name": "jump",
 "speed": 0.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -86,7 +86,7 @@ editor_draw_limits = true
 one_shot = true
 
 [node name="Plate" parent="." instance=ExtResource( 13 )]
-position = Vector2( 14.7036, 6.206 )
+position = Vector2( 15, 6 )
 mass = 0.01
 gravity_scale = 0.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
