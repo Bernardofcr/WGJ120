@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export(int) var SPEED = 30
+export(float) var PLATE_VELOCITY = 0.5
 export(int) var hp = 1
 const GRAVITY = 10
 const JUMP_FORCE = -250
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("run")
 			if sign($Plate.position.x) == -1:
 				var new_pos = Vector2(15, $Plate.position.y)
-				$Plate.move_to_other_side(new_pos)
+				$Plate.move_to_other_side(new_pos, PLATE_VELOCITY)
 
 #				if !is_attacking:
 #					$AnimatedSprite.flip_h = false
@@ -53,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("run")
 			if sign($Plate.position.x) == 1:
 				var new_pos = Vector2(15 * -1, $Plate.position.y)
-				$Plate.move_to_other_side(new_pos)
+				$Plate.move_to_other_side(new_pos, PLATE_VELOCITY)
 
 		elif Input.is_action_just_pressed("ui_focus_next"):
 			get_tree().reload_current_scene()
@@ -70,9 +71,11 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_pressed("ui_run"):
 			SPEED = 70
+			PLATE_VELOCITY = 0.2
 			$AnimatedSprite.get_sprite_frames().set_animation_speed("run", 24.0)
 		else:
 			SPEED = 30
+			PLATE_VELOCITY = 0.5
 			$AnimatedSprite.get_sprite_frames().set_animation_speed("run", 12.0)
 
 #		if Input.is_action_just_pressed("ui_up"):
