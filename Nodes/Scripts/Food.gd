@@ -9,6 +9,7 @@ const FLOOR = Vector2(0, -1)
 var velocity = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mass = randi()%8+1
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:

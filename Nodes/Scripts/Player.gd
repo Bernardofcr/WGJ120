@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export(int) var SPEED = 30
 export(int) var hp = 1
-const GRAVITY = 0
+const GRAVITY = 10
 const JUMP_FORCE = -250
 const FLOOR = Vector2(0, -1)
 
@@ -35,17 +35,24 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("ui_right"):
 #			if !is_attacking or !is_on_floor():
 			velocity.x += SPEED
-
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("run")
+			if sign($Plate.position.x) == -1:
+				$Plate.position.x *= -1
 #				if !is_attacking:
 #					$AnimatedSprite.flip_h = false
 #					$AnimatedSprite.play("run")
 #					if sign($Plate.position.x) == -1:
 #						$Plate.position.x *= -1
-		if Input.is_action_pressed("ui_left"):
+		elif Input.is_action_pressed("ui_left"):
 #			if !is_attacking or !is_on_floor():
 			velocity.x -= SPEED
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("run")
+			if sign($Plate.position.x) == 1:
+				$Plate.position.x *= -1
 
-		if Input.is_action_just_pressed("ui_focus_next"):
+		elif Input.is_action_just_pressed("ui_focus_next"):
 			get_tree().reload_current_scene()
 
 
@@ -54,10 +61,16 @@ func _physics_process(delta: float) -> void:
 #					$AnimatedSprite.play("run")
 #					if sign($Plate.position.x) == 1:
 #						$Plate.position.x *= -1
-#		else:
-#			velocity.x = 0
-#			if on_ground == true and !is_attacking:
-#				$AnimatedSprite.play("idle")
+		else:
+			velocity.x = 0
+			$AnimatedSprite.play("idle")
+
+		if Input.is_action_pressed("ui_run"):
+			SPEED = 70
+			$AnimatedSprite.get_sprite_frames().set_animation_speed("run", 24.0)
+		else:
+			SPEED = 30
+			$AnimatedSprite.get_sprite_frames().set_animation_speed("run", 12.0)
 
 #		if Input.is_action_just_pressed("ui_up"):
 ##			velocity.y = JUMP_FORCE
@@ -83,7 +96,7 @@ func _physics_process(delta: float) -> void:
 #			get_parent().add_child(fireball)
 #			fireball.position = $Position2D.global_position
 #
-		velocity.y += GRAVITY * delta
+		velocity.y += GRAVITY
 
 		move_and_slide(velocity, FLOOR)
 
