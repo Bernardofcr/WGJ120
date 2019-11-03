@@ -7,7 +7,7 @@ extends Position2D
 onready var FOOD = preload("res://Nodes/Prefabs/Food.tscn")
 
 export (float) var minWaitTime = 5
-export (float) var maxWaitTime = 20
+export (float) var maxWaitTime = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

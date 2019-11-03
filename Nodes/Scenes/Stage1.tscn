@@ -58,9 +58,5 @@ position = Vector2( 72.2273, 125.391 )
 position = Vector2( 34.6968, 64.6401 )
 
 [node name="Table" parent="." instance=ExtResource( 8 )]
-visible = false
-position = Vector2( 138.786, 145.449 )
-
-[node name="Table2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 130.758, 146.027 )
+position = Vector2( 129.707, 145.165 )
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]
