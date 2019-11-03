@@ -29,6 +29,18 @@ func apply_inertia_velocity(velocity: Vector2):
 	pass
 
 func _on_Area2D_body_entered(body) -> void:
+	if body.name == "TileMap":
+		_set_timer()
 #	if self.name != body.name:
 #		print(self.name, " colidiu com ", body.name)
+
+	pass # Replace with function body.
+
+func _set_timer() -> void:
+	$Timer.set_wait_time(10)
+	$Timer.start()
+	pass
+
+func _on_Timer_timeout() -> void:
+	queue_free()
 	pass # Replace with function body.
