@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _on_Timer_timeout() -> void:
 	var new_food = FOOD.instance()
+	new_food.name.erase(0,1)
 	get_parent().add_child(new_food)
 	new_food.position = self.global_position
 

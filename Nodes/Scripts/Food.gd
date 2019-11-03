@@ -29,10 +29,6 @@ func apply_inertia_velocity(velocity: Vector2):
 	pass
 
 func _on_Area2D_body_entered(body) -> void:
-	if self.name != body.name:
-		if body.name == "Plate":
-			apply_inertia_velocity(body.velocity)
-		elif body.name.match("Food"):
-			body.apply_inertia_velocity(velocity*1.1)
-		print(self.name, " colidiu com ", body.name)
+#	if self.name != body.name:
+#		print(self.name, " colidiu com ", body.name)
 	pass # Replace with function body.
