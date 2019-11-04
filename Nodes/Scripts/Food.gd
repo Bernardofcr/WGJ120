@@ -7,9 +7,19 @@ const GRAVITY = 10
 const FLOOR = Vector2(0, -1)
 
 var velocity = Vector2()
+
+enum FOOD_TYPE{
+	BURGER = 1,
+	COFFEE = 2,
+	LUNCH = 3,
+	BREAKFAST = 4
+}
+var food_type = FOOD_TYPE.LUNCH
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mass = randi()%8+1
+	food_type = rand_range(1,FOOD_TYPE.size())
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
