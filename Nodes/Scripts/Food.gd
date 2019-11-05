@@ -15,6 +15,7 @@ enum FOOD_TYPE{
 	BREAKFAST = 4
 }
 var food_type = FOOD_TYPE.LUNCH
+var for_table = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

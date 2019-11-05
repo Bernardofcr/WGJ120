@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Nodes/Tilesets/ground.tres" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/car_trees_etc.png" type="Texture" id=3]
 [ext_resource path="res://Nodes/Scripts/ScreenShake.gd" type="Script" id=4]
 [ext_resource path="res://Nodes/Scenes/PauseMenu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Nodes/Prefabs/Food.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Nodes/Prefabs/FoodSpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Nodes/Prefabs/Table.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Prefabs/FoodSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Prefabs/Table.tscn" type="PackedScene" id=7]
 
 [node name="Stage1" type="Node2D"]
 
@@ -23,6 +22,7 @@ tile_data = PoolIntArray( -65536, 11, 0, 0, 11, 0, 29, 9, 0, 65536, 11, 0, 65565
 position = Vector2( 56.0251, 137.484 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scroll_base_scale = Vector2( 0.5, 0.5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -45,24 +45,15 @@ editor/display_folded = true
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
 
-[node name="Food" parent="." instance=ExtResource( 6 )]
-position = Vector2( 93.1595, 137.277 )
-
-[node name="Food2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 72.2273, 130.409 )
-
-[node name="Food3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 72.2273, 125.391 )
-
-[node name="FoodSpawner" parent="." instance=ExtResource( 7 )]
+[node name="FoodSpawner" parent="." instance=ExtResource( 6 )]
 position = Vector2( 34.6968, 64.6401 )
 
-[node name="Table" parent="." instance=ExtResource( 8 )]
+[node name="Table1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 129.707, 145.165 )
 
-[node name="Table2" parent="." instance=ExtResource( 8 )]
+[node name="Table2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 257.132, 144.915 )
 
-[node name="Table3" parent="." instance=ExtResource( 8 )]
+[node name="Table3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 389.404, 144.915 )
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

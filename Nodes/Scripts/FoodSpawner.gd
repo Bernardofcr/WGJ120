@@ -7,22 +7,18 @@ extends Position2D
 onready var FOOD = preload("res://Nodes/Prefabs/Food.tscn")
 
 export (float) var minWaitTime = 5
-export (float) var maxWaitTime = 5
+export (float) var maxWaitTime = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	randomize() # Toda vez que o jogo começar ela vai começar num tempo diferente
-	$Timer.set_wait_time(rand_range(minWaitTime, maxWaitTime))
-	$Timer.start()
 	pass # Replace with function body.
 
 
-func _on_Timer_timeout() -> void:
+func prepare_food(table_number: int) -> void:
+	yield(get_tree().create_timer(rand_range(minWaitTime, maxWaitTime)), "timeout")
 	var new_food = FOOD.instance()
-	new_food.name.erase(0,1)
 	get_parent().add_child(new_food)
+	new_food.for_table = table_number
 	new_food.position = self.global_position
-
-	$Timer.set_wait_time(rand_range(minWaitTime, maxWaitTime))
-	$Timer.start()
-	pass # Replace with function body.
+	print("Prato ", new_food.name, " para a mesa ", new_food.for_table)
+	pass
