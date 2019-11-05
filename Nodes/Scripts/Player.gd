@@ -6,8 +6,6 @@ const GRAVITY = 10
 const JUMP_FORCE = -250
 const FLOOR = Vector2(0, -1)
 
-const FIREBALL = preload("res://Nodes/Prefabs/Fireball.tscn")
-
 var velocity = Vector2(0,0)
 var on_ground = false
 var is_attacking = false
