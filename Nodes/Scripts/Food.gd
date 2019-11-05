@@ -23,18 +23,6 @@ func _ready() -> void:
 	food_type = rand_range(1,FOOD_TYPE.size())
 	pass # Replace with function body.
 
-func _physics_process(delta: float) -> void:
-#	velocity.y += GRAVITY
-#	velocity = move_and_slide(velocity, FLOOR)
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
-#func _on_Food_body_entered(body) -> void:
-#	print("Colidiu com %s", body.name)
-#	pass # Replace with function body.
-
 func apply_inertia_velocity(velocity: Vector2):
 	self.velocity = velocity
 	pass
