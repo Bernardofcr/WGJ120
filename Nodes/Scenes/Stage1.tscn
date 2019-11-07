@@ -13,10 +13,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=4]
 0/name = "Tiles.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -71,7 +71,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -79,7 +79,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="Stage1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 4
 collision_mask = 11
@@ -95,7 +95,7 @@ position = Vector2( 56.0251, 137.484 )
 motion_mirroring = Vector2( 336, 0 )
 
 [node name="TileMap2" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
@@ -118,11 +118,11 @@ visible = false
 position = Vector2( 34.6968, 64.6401 )
 
 [node name="Table1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 129.18, 150.435 )
+position = Vector2( 129.315, 150.976 )
 
 [node name="Table2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 256.517, 150.14 )
+position = Vector2( 256.517, 151.04 )
 
 [node name="Table3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 389.711, 149.833 )
+position = Vector2( 389.968, 150.99 )
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]
