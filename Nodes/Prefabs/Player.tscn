@@ -78,7 +78,7 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_right = 400
-limit_bottom = 180
+limit_bottom = 178
 smoothing_enabled = true
 editor_draw_limits = true
 

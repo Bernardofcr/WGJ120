@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/car_trees_etc.png-6c5339d070fde1bf7c165209d5c1cd9a.stex"
+path="res://.import/background.png-4fa92766cad903a1a79b587b09bd47c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/car_trees_etc.png"
-dest_files=[ "res://.import/car_trees_etc.png-6c5339d070fde1bf7c165209d5c1cd9a.stex" ]
+source_file="res://Sprites/background.png"
+dest_files=[ "res://.import/background.png-4fa92766cad903a1a79b587b09bd47c5.stex" ]
 
 [params]
 

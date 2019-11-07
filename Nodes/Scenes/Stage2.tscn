@@ -3,12 +3,13 @@
 [ext_resource path="res://Nodes/Tilesets/ground.tres" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Nodes/Prefabs/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/car_trees_etc.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=4]
 [ext_resource path="res://Nodes/Scripts/ScreenShake.gd" type="Script" id=5]
 [ext_resource path="res://Nodes/Prefabs/PowerUp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Prefabs/ChangeStage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Nodes/Scenes/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Nodes/Prefabs/DeathCollider.tscn" type="PackedScene" id=9]
+
 
 [node name="Stage2" type="Node2D"]
 
