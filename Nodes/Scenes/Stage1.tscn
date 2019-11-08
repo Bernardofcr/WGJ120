@@ -3,8 +3,8 @@
 [ext_resource path="res://Sprites/Tiles.png" type="Texture" id=1]
 [ext_resource path="res://Nodes/Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Nodes/Scripts/ScreenShake.gd" type="Script" id=3]
-[ext_resource path="res://Nodes/Prefabs/Interface/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Nodes/Scenes/PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Scenes/PauseMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Prefabs/Interface/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Nodes/Prefabs/FoodSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Prefabs/Table.tscn" type="PackedScene" id=7]
 
@@ -91,6 +91,7 @@ tile_data = PoolIntArray( 0, 3, 0, 65536, 3, 0, 131072, 3, 0, 196608, 3, 0, 2621
 position = Vector2( 56.0251, 137.484 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 336, 0 )
@@ -110,11 +111,12 @@ script = ExtResource( 3 )
 [node name="Tween" type="Tween" parent="ScreenShake"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [node name="FoodSpawner" parent="." instance=ExtResource( 6 )]
 position = Vector2( 34.6968, 64.6401 )

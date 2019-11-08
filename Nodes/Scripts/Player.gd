@@ -12,6 +12,7 @@ var is_attacking = false
 var is_dead = false
 var fireball_power = 1
 var jump_count = 0
+var tip_received = 0
 
 func _ready() -> void:
 	adjust_camera_limits()
@@ -81,6 +82,13 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	is_attacking = false
 	pass # Replace with function body.
 
+func get_tip() -> int:
+	print("current tip = ", tip_received)
+	return tip_received
+
+func add_tip(value: int) -> void:
+	tip_received += value
+	pass
 
 func _on_Timer_timeout() -> void:
 	get_tree().change_scene("res://Nodes/Scenes/TitleScreen.tscn")

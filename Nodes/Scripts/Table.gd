@@ -18,6 +18,7 @@ func _ready() -> void:
 func _on_Table_body_entered(body) -> void:
 	if (body.name.begins_with("Food") or body.name.begins_with("@Food")) and body.for_table == TABLE_NUMBER:
 		body.queue_free()
+		get_parent().get_node("Player").add_tip(randi()%1 + 10)
 		$CollisionShape2D.set_deferred("disabled",true)
 		$PopupTable.hide()
 		_set_timer()
